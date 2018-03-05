@@ -1,0 +1,10 @@
+var p0 = Promise.reject(111);
+var p1 = Promise.resolve(3);
+var p2 = Promise.resolve(2);
+var p3 = Promise.resolve(9);
+Promise.all([p1, p2, p3]).then((values) => {
+    console.log(values.reduce((a, b) => (a + b), 0))
+}).catch(() => (console.log('error')));
+Promise.all([p0, p1, p2, p3]).then((values) => {
+    console.log(values.reduce((a, b) => (a + b), 0))
+}).catch(() => (console.log('error')));
